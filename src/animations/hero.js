@@ -105,16 +105,22 @@ export function HeroAnimation() {
           y: () => Math.min(window.innerHeight * 0.55, 360),
           scale: 0.82,
           ease: "none",
+          duration: 0.8,
         }, 0)
+        // Start fading the bottle immediately as it moves down.
         .to(bottle, {
           opacity: 0,
           ease: "none",
-        }, 0.42)
+          duration: 0.55,
+        }, 0)
+        // Bring the copy in after the bottle has begun fading,
+        // so it is readable as the image passes behind it.
         .to(".hero-content", {
           opacity: 1,
           y: 0,
           ease: "none",
-        }, 0.18);
+          duration: 0.65,
+        }, 0.25);
 
       return () => reveal.kill();
     });
