@@ -1,35 +1,29 @@
 export function Navbar() {
-
     return `
-
 <nav class="navbar">
+    <div class="logo">APEX</div>
 
-<div class="logo">
+    <div class="nav-center">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
 
-APEX
+    <button
+        class="menu-btn"
+        type="button"
+        aria-label="Open navigation"
+        aria-controls="mobile-navigation"
+        aria-expanded="false"
+    >☰</button>
 
-</div>
-
-<div class="nav-center">
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-</div>
-
-<button class="menu-btn" aria-label="Toggle navigation">
-    ☰
-</button>
-
-<div class="mobile-menu">
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#products">About</a>
-    <a href="#about">Contact</a>
-</div>
-
+    <div class="mobile-menu" id="mobile-navigation">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
 </nav>
-
 `;
-
 }
