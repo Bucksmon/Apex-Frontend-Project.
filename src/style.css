@@ -284,3 +284,14 @@ textarea:focus-visible {
         transition-duration: .01ms !important;
     }
 }
+
+/* Keep the slide-out menu inside very narrow viewports */
+@media (max-width: 768px) {
+    .mobile-menu {
+        width: min(280px, 85vw);
+        max-width: 85vw;
+        height: 100vh;
+        height: 100dvh;
+        padding: clamp(28px, 8vw, 50px);
+    }
+}
