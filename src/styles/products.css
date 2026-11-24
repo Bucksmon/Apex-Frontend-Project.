@@ -257,3 +257,126 @@
     }
 
 }
+
+/* Keep the collection aligned with the site's centered content */
+.products {
+    width: min(1500px, 90%);
+    margin-inline: auto;
+    padding: 120px 0 180px;
+    min-width: 0;
+}
+
+.products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(20px, 2.5vw, 40px);
+    min-width: 0;
+}
+
+.product-card {
+    min-width: 0;
+}
+
+.product-image {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.product-image img {
+    display: block;
+    width: min(240px, 78%);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.product-info {
+    min-width: 0;
+}
+
+.product-info h3 {
+    font-size: clamp(1.35rem, 2.1vw, 2rem);
+    overflow-wrap: anywhere;
+}
+
+.product-info p {
+    overflow-wrap: break-word;
+}
+
+.product-footer {
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1100px) {
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products {
+        width: min(100% - 36px, 620px);
+        padding: 104px 0 120px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .product-image {
+        height: 260px;
+    }
+
+    .product-image img {
+        width: min(180px, 78%);
+    }
+
+    .product-info {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .products {
+        width: calc(100% - 36px);
+        padding: 88px 0 100px;
+    }
+
+    .products-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .product-image {
+        height: clamp(220px, 65vw, 280px);
+    }
+
+    .product-image img {
+        width: min(200px, 68%);
+    }
+
+    .product-info {
+        padding: 22px;
+    }
+
+    .product-info h3 {
+        font-size: 1.65rem;
+    }
+
+    .product-footer {
+        flex-wrap: nowrap;
+    }
+}
+
+@media (max-width: 360px) {
+    .products {
+        width: calc(100% - 28px);
+        padding-inline: 0;
+    }
+
+    .product-info {
+        padding: 18px;
+    }
+}
