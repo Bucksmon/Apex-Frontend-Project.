@@ -55,7 +55,7 @@ Explore Collection
   <div class="hero-bottle-wrapper">
         <img
             id="heroBottle"
-            src="\${asset("products/whey.png")}"
+            src="${asset("products/whey.png")}"
             alt="Protein Bottle"
         >
     </div>
@@ -113,7 +113,7 @@ Explore Collection
         <article class="product-card">
 
             <div class="product-image">
-                <img src="\${asset("products/55.png")}" alt="Whey Protein">
+                <img src="${asset("products/55.png")}" alt="Whey Protein">
             </div>
 
             <div class="product-info">
@@ -150,7 +150,7 @@ Explore Collection
         <article class="product-card">
 
             <div class="product-image">
-                <img src="\${asset("products/56.png")}" alt="">
+                <img src="${asset("products/56.png")}" alt="">
             </div>
 
             <div class="product-info">
@@ -187,7 +187,7 @@ Explore Collection
         <article class="product-card">
 
             <div class="product-image">
-                <img src="\${asset("products/7.jpeg")}" alt="">
+                <img src="${asset("products/7.jpeg")}" alt="">
             </div>
 
             <div class="product-info">
@@ -230,7 +230,7 @@ Explore Collection
 
     <div class="about-image">
 
-        <img src="\${asset("products/whey.png")}" alt="About Apex">
+        <img src="${asset("products/whey.png")}" alt="About Apex">
 
     </div>
 
