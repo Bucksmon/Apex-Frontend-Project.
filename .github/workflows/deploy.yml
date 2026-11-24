@@ -25,8 +25,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-          cache-dependency-path: apex-nutrition/package-lock.json
 
       - name: Extract project archive
         run: |
@@ -48,6 +46,7 @@ jobs:
           main = Path('src/main.js')
           s = main.read_text()
           s = s.replace('src="/products/', 'src="${import.meta.env.BASE_URL}products/')
+          s = s.replace('<section class="hero">', '<section class="hero" id="home">')
           s = s.replace('<section class="products">', '<section class="products" id="products">')
           s = s.replace('<section class="about">', '<section class="about" id="about">')
           s = s.replace('<section class="contact">', '<section class="contact" id="contact">')
@@ -85,6 +84,19 @@ jobs:
             s = s.replace('<a href="#">Contact</a>', '<a href="#contact">Contact</a>')
             s = s.replace('<a href="#products">Products</a>', '<a href="#products">Products</a>')
             nav.write_text(s)
+
+          main = Path('src/main.js')
+          s = main.read_text()
+          s += """
+          const mobileMenu = document.querySelector('.mobile-menu');
+          const mobileMenuButton = document.querySelector('.menu-btn');
+          mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            mobileMenuButton?.setAttribute('aria-expanded', 'false');
+            if (mobileMenuButton) mobileMenuButton.textContent = '☰';
+          }));
+          """
+          main.write_text(s)
           """
           PY
           cat >> src/style.css <<'EOF'
