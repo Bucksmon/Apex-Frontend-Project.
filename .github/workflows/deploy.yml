@@ -53,11 +53,13 @@ jobs:
 
           main = Path('src/main.js')
           source = main.read_text()
-          source = source.replace(
-              'import "./style.css";',
-              'import "./style.css";\nconst asset = (path) => import.meta.env.BASE_URL + path.replace(/^\\//, "");'
+          helper = 'const asset = (path) => import.meta.env.BASE_URL + path.replace(/^\\//, "");'
+          source = source.replace('import "./style.css";', 'import "./style.css";' + chr(10) + helper)
+          source = re.sub(
+              r'src="/products/([^"]+)"',
+              lambda match: 'src="\${asset("products/' + match.group(1) + '")}"',
+              source
           )
-          source = re.sub(r'src="/products/([^"]+)"', r'src="\${asset("products/\1")}"', source)
           source = source.replace('<section class="hero">', '<section class="hero" id="home">')
           source = source.replace('<section class="products">', '<section class="products" id="products">')
           source = source.replace('<section class="about">', '<section class="about" id="about">')
@@ -79,7 +81,7 @@ jobs:
 
           products = Path('src/data/products.js')
           if products.exists():
-              source = products.read_text().replace('image:"/products/', 'image: import.meta.env.BASE_URL + "products/')
+              source = source.replace('image:"/products/', 'image: import.meta.env.BASE_URL + "products/')
               products.write_text(source)
           PY
 
