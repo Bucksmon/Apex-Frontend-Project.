@@ -125,87 +125,20 @@ export function HeroAnimation() {
     });
 
     // ===========================
-    // Tablet
+    // Tablet and Mobile
     // ===========================
 
-    mm.add("(min-width:768px) and (max-width:1023px)", () => {
-
-      const tl = gsap.timeline({
-
-        scrollTrigger: {
-          trigger: hero,
-          start: "top top",
-          end: "+=1000",
-          scrub: 0.5,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-
-          onEnter: () => floatBottle.pause(),
-          onEnterBack: () => floatBottle.pause(),
-
-          onLeave: () => floatBottle.resume(),
-          onLeaveBack: () => floatBottle.resume()
-        }
-
+    // Keep hero copy visible while scrolling on smaller screens.
+    // The scroll-driven bottle zoom previously pushed the bottle over
+    // the heading and faded the text away on compact layouts.
+    mm.add("(max-width:1023px)", () => {
+      gsap.set(".hero-content", {
+        clearProps: "opacity,transform"
       });
 
-      tl.to(bottle, {
-        scale: 1.7,
-        y: 180
-      }, 0)
-
-        .to(".hero-content", {
-          opacity: 0,
-          y: -60
-        }, 0);
-
-      return () => tl.kill();
-
-    });
-
-    // ===========================
-    // Mobile
-    // ===========================
-
-    mm.add("(max-width:767px)", () => {
-
-      const tl = gsap.timeline({
-
-        scrollTrigger: {
-          trigger: hero,
-          start: "top top",
-          end: "+=700",
-          scrub: 0.5,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-
-          onEnter: () => floatBottle.pause(),
-          onEnterBack: () => floatBottle.pause(),
-
-          onLeave: () => floatBottle.resume(),
-          onLeaveBack: () => floatBottle.resume()
-        }
-
+      gsap.set(bottle, {
+        clearProps: "transform"
       });
-
-      tl.to(bottle, {
-        scale: 1.35,
-        rotation: 10,
-        y: 120
-      }, 0)
-
-        .to(".hero-light", {
-          scale: 1.6,
-          opacity: 1
-        }, 0)
-
-        .to(".hero-content", {
-          opacity: 0,
-          y: -40
-        }, 0);
-
-      return () => tl.kill();
-
     });
 
     window.addEventListener("load", () => {
