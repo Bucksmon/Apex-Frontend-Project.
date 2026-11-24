@@ -11,22 +11,28 @@ export function initNavbar() {
   });
 }
 
-export function NavbarAnimation(){
+export function NavbarAnimation() {
+  const button = document.querySelector(".menu-btn");
+  const menu = document.querySelector(".mobile-menu");
 
-    const button=document.querySelector(".menu-btn");
-    const menu=document.querySelector(".mobile-menu");
+  if (!button || !menu) return;
 
-    if(!button||!menu) return;
+  const setMenuOpen = (open) => {
+    menu.classList.toggle("active", open);
+    button.textContent = open ? "✕" : "☰";
+    button.setAttribute("aria-expanded", String(open));
+    button.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  };
 
-    button.addEventListener("click",()=>{
+  button.addEventListener("click", () => {
+    setMenuOpen(!menu.classList.contains("active"));
+  });
 
-        menu.classList.toggle("active");
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenuOpen(false));
+  });
 
-        button.textContent=
-            menu.classList.contains("active")
-            ? "✕"
-            : "☰";
-
-    });
-
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenuOpen(false);
+  });
 }
