@@ -28,15 +28,14 @@ export function ProductsAnimation() {
 
     gsap.from(cards,{
 
-        y:120,
+        y: 0,
 
         opacity:0,
 
-        scale:.85,
+        scale: .98,
 
-        duration:1,
-
-        stagger:.18,
+        duration: .7,
+        stagger: .08,
 
         ease:"power4.out",
 
@@ -47,7 +46,7 @@ export function ProductsAnimation() {
 
     });
 
-    cards.forEach(card=>{
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) cards.forEach(card=>{
 
         const image = card.querySelector("img");
 
