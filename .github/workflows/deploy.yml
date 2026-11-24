@@ -47,6 +47,7 @@ jobs:
           s = main.read_text()
           s = s.replace('src="/products/', 'src="${import.meta.env.BASE_URL}products/')
           s = s.replace('<section class="hero">', '<section class="hero" id="home">')
+          s = s.replace('<section class="hero">', '<section class="hero" id="home">')
           s = s.replace('<section class="products">', '<section class="products" id="products">')
           s = s.replace('<section class="about">', '<section class="about" id="about">')
           s = s.replace('<section class="contact">', '<section class="contact" id="contact">')
@@ -97,7 +98,6 @@ jobs:
           }));
           """
           main.write_text(s)
-          """
           PY
           cat >> src/style.css <<'EOF'
 
