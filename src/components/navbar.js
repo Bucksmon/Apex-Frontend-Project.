@@ -22,10 +22,10 @@ APEX
 </button>
 
 <div class="mobile-menu">
-    <a href="#">Home</a>
+    <a href="#home">Home</a>
     <a href="#products">Products</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="#products">About</a>
+    <a href="#about">Contact</a>
 </div>
 
 </nav>

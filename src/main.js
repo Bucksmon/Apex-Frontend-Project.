@@ -1,5 +1,6 @@
 import "./style.css";
 const asset = (path) => import.meta.env.BASE_URL + path.replace(/^\//, "");
+const asset = (path) => import.meta.env.BASE_URL + path.replace(/^\//, "");
 
 import { Navbar } from "./components/navbar";
 import { Loader } from "./components/loader";

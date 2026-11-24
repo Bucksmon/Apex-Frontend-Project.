@@ -1,78 +1,35 @@
-export default [
+export function Navbar() {
 
-{
-    id:0,
-    name:"Gold Standard Whey",
+    return `
 
-    image: import.meta.env.BASE_URL + "products/whey.png",
+<nav class="navbar">
 
-    glow:"#4ea8ff",
+<div class="logo">
 
-    description:
-    "Premium isolate protein engineered for lean muscle recovery.",
+APEX
 
-    features:[
-        "24g Protein",
-        "5.5g BCAAs",
-        "Fast Recovery"
-    ]
-},
+</div>
 
-{
-    id:1,
+<div class="nav-center">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</div>
 
-    name:"Creatine Monohydrate",
+<button class="menu-btn" aria-label="Toggle navigation">
+    ☰
+</button>
 
-    image: import.meta.env.BASE_URL + "products/creatine.png",
+<div class="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#products">About</a>
+    <a href="#about">Contact</a>
+</div>
 
-    glow:"#8a5cff",
+</nav>
 
-    description:
-    "Pure micronized creatine for explosive strength.",
+`;
 
-    features:[
-        "5g Creatine",
-        "ATP Support",
-        "Strength"
-    ]
-},
-
-{
-    id:2,
-
-    name:"Pre Workout",
-
-    image: import.meta.env.BASE_URL + "products/preworkout.png",
-
-    glow:"#ff6d3f",
-
-    description:
-    "Maximum energy and focus before training.",
-
-    features:[
-        "200mg Caffeine",
-        "Pump",
-        "Focus"
-    ]
-},
-
-{
-    id:3,
-
-    name:"Mass Gainer",
-
-    image: import.meta.env.BASE_URL + "products/gainer.png",
-
-    glow:"#2ad3aa",
-
-    description:
-    "Clean calories for serious muscle growth.",
-
-    features:[
-        "1250 Calories",
-        "50g Protein",
-        "Weight Gain"
-    ]
 }
-
-]

@@ -40,3 +40,40 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
     transition-duration: .01ms !important;
   }
 }
+
+/* Portfolio-ready responsive refinements */
+html { scroll-padding-top: 88px; }
+body { overflow-x: clip; }
+img { max-width: 100%; height: auto; }
+button, input, textarea { font: inherit; }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid #55b6ff;
+  outline-offset: 4px;
+}
+.products-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.contact-form input, .contact-form textarea { width: 100%; max-width: 100%; }
+.mobile-menu { max-width: min(320px, 85vw); }
+@media (max-width: 768px) {
+  main { width: min(100% - 36px, 620px); }
+  .products, .about, .contact { padding-left: 18px; padding-right: 18px; }
+  .products-header { margin-bottom: 48px; }
+  .products-grid { gap: 22px; }
+  .product-info { padding: 24px; }
+  .product-info h3 { font-size: 1.55rem; }
+  .about { gap: 36px; }
+  .contact-form { width: 100%; }
+}
+@media (max-width: 420px) {
+  .hero-title { overflow-wrap: anywhere; }
+  .product-image { height: 230px; }
+  .product-image img { max-width: 70%; }
+  .section-title { font-size: clamp(2rem, 10vw, 2.5rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
