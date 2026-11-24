@@ -422,3 +422,9 @@
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+/* Let the product cards use the available desktop width */
+.products {
+    padding-left: clamp(24px, 3vw, 56px);
+    padding-right: clamp(24px, 3vw, 56px);
+}
