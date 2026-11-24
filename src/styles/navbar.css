@@ -1,0 +1,138 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 22px clamp(20px,6vw,80px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,.15);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    z-index: 100;
+}
+
+.logo {
+    font-size: clamp(1.5rem,2vw,2rem);
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.nav-center {
+    display: flex;
+    gap: clamp(20px,3vw,40px);
+}
+
+.nav-center a {
+    text-decoration: none;
+    color: white;
+    opacity: .75;
+    transition: .35s;
+}
+
+.nav-center a:hover {
+    opacity: 1;
+}
+
+.cart-btn {
+    padding: 14px 28px;
+    border-radius: 999px;
+    border: none;
+    background: #3a9fff;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .35s;
+}
+
+.cart-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 18px 20px;
+    }
+
+    .nav-center {
+        display: none;
+    }
+
+    .cart-btn {
+        padding: 12px 18px;
+    }
+}
+
+/* ---------- Small phones ---------- */
+
+@media (max-width: 480px) {
+
+    .logo {
+        letter-spacing: 3px;
+    }
+
+    .cart-btn {
+        font-size: .9rem;
+        padding: 10px 16px;
+    }
+}
+
+
+.menu-btn{
+    display:none;
+    width:48px;
+    height:48px;
+    border:none;
+    background:none;
+    color:white;
+    font-size:2rem;
+    cursor:pointer;
+    z-index:120;
+}
+
+.mobile-menu{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:280px;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:30px;
+
+    padding:50px;
+
+    background:#090909;
+
+    transition:right .45s ease;
+
+    z-index:110;
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+.mobile-menu a{
+    color:white;
+    text-decoration:none;
+    font-size:1.25rem;
+}
+
+@media(max-width:768px){
+
+    .nav-center{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+}
